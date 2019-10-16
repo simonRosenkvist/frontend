@@ -3,6 +3,7 @@ import './App.css';
 import Sec from './Sec.js';
 import SearchBar from './SearchBar';
 import Container from './Container.js';
+import LoginField from "./login";
 
 class App extends React.Component {
 
@@ -25,7 +26,6 @@ renderSection() {
     return (
       <div className="App">
           <SearchBar/>
-
           {this.renderMain()}
       
       </div>
