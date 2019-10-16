@@ -6,14 +6,6 @@ import Container from './Container.js';
 
 class App extends React.Component {
 
-renderSection() {
-    return (
-      <Sec
-        value={1}
-    />
-
-    );
-  }
 
   renderMain() {
     return (
@@ -25,7 +17,6 @@ renderSection() {
     return (
       <div className="App">
           <SearchBar/>
-
           {this.renderMain()}
       
       </div>
