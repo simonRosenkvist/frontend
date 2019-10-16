@@ -4,6 +4,8 @@ import Sec from './Sec.js';
 import SearchBar from './SearchBar';
 import Container from './Container.js';
 import LoginField from "./login";
+import { withCookies, Cookies, setCookie } from 'react-cookie';
+
 
 class App extends React.Component {
 
@@ -27,9 +29,9 @@ renderSection() {
       <div className="App">
           <SearchBar/>
           {this.renderMain()}
-      
+
       </div>
     );
 }
 }
-export default App;
+export default withCookies(App);
