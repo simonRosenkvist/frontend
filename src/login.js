@@ -1,6 +1,7 @@
 import React from 'react';
-import axios from 'axios';
-import { withCookies, Cookies, setCookie, getCookie, removeCookie } from 'react-cookie';
+import axios from 'axios'
+import UserState from "./UserState";
+//import { withCookies, Cookies, setCookie, getCookie, removeCookie } from 'react-cookie';
 
 
 
@@ -9,7 +10,8 @@ export default class LoginField extends React.Component{
         super(props);
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            role: '0'
         }
         this.handleUsrNameField = this.handleUsrNameField.bind(this);
         this.handlePasswdField = this.handlePasswdField.bind(this);
@@ -36,10 +38,16 @@ export default class LoginField extends React.Component{
             .then(function (response) {
                 //console.log(response.data);
                 if(response.data === 1){
+                    console.log("state before: " + this.state.role);
+                    //this.props.role = response.data;
+                    this.setState({role: response.data});
+                    //this.props.setState({ role: response.data });
+                    console.log("state after wiht props" +  this.state.role)
+                    //console.log("state after: " + UserState.getState);
                     console.log("logged in as a user :D");
                     //TODO set a session or something since were now logged in.
                     // the number is our access_token :)
-                    setCookie('login-cookie', response.data,{maxAge: 30*24*60*60, path: '/'});
+                    //setCookie('login-cookie', response.data,{maxAge: 30*24*60*60, path: '/'});
                 } else if(response.data === 2){
                     console.log("logged in as a owner")
                     //TODO set a session or something since were now logged in.

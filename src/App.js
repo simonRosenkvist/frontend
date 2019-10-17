@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import './App.css';
 import Sec from './Sec.js';
 import SearchBar from './SearchBar';
@@ -34,4 +34,31 @@ renderSection() {
     );
 }
 }
-export default withCookies(App);
+export default withCookies(App);*/
+
+import React from "react";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
+
+import Navclass from './Navclass';
+import Switchclass from "./Switchclass";
+
+export default function App() {
+    return (
+        <Router>
+            <div>
+                <Navclass/>
+
+
+                {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+                <Switchclass />
+            </div>
+        </Router>
+    );
+}
+
