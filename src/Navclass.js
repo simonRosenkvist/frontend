@@ -26,11 +26,6 @@ class Navclass extends React.Component {
             role: newRole,
             username: name
         });
-<<<<<<< HEAD
-=======
-
-        console.log("states...\n" + this.state.role + "\n" + this.state.username)
->>>>>>> d07afd0bb17655543787096b83763582e483ea46
     }
 
 
