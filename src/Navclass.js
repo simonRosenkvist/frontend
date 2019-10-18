@@ -8,6 +8,7 @@ import SearchBar from "./SearchBar";
 import ReviewForm from "./components/ReviewForm";
 import Container from "./Container";
 import Logout from "./containers/Logout";
+import DisplaySearch from "./DisplaySearch";
 
 
 class Navclass extends React.Component {
@@ -25,14 +26,12 @@ class Navclass extends React.Component {
             role: newRole,
             username: name
         });
-
-        console.log("states...\n" + this.state.role + "\n " + this.state.username)
     }
 
 
     handleSearch(data){
         this.setState({
-            searchData: search
+            searchData: data
         })
     }
 
@@ -55,9 +54,6 @@ class Navclass extends React.Component {
                                 </li>
                                 <li>
                                     <Link to="/logout">Logout</Link>
-                                </li>
-                                <li>
-                                    <Link to="/DisplaySearch"></Link>
                                 </li>
                             </ul>
                         </nav>
@@ -119,11 +115,11 @@ class Navclass extends React.Component {
                                 <li>
                                     <Link to="/logout">Logout</Link>
                                 </li>
-                                  <li>
-                                    <Link to="/DisplaySearch"></Link>
-                                </li>
                             </ul>
                         </nav>
+
+
+
                         <Switch>
                             <Route path="/addrestaurant">
                                 <NewRestaurant/>
@@ -178,15 +174,11 @@ class Navclass extends React.Component {
                                 <li>
                                     <Link to="/signup">Signup</Link>
                                 </li>
-                                  <li>
-                                    <Link to="/DisplaySearch"></Link>
-                                </li>
                             </ul>
                         </nav>
                         <Switch>
                             <Route path="/login">
                                 <Login
-
                                     onRoleChanged={(role, name) => this.handleRole(role, name)}
                                 >
                                 </Login>
@@ -197,18 +189,24 @@ class Navclass extends React.Component {
                                 >
                                 </SignUp>
                             </Route>
-                            <Route>
-                            <DisplaySearch
-                                data={this.state.searchData}
-                              >
-                              </DisplaySearch>
+                    
+                            <Route path="/DisplaySearch">
+                                <SearchBar
+                                     mordekaiser={ (strebenkaiser) => this.handleSearch(strebenkaiser)}
+                                  ></SearchBar>
+                                <DisplaySearch
+                                    data={this.state.searchData}
+                                >
+                                </DisplaySearch>
                             </Route>
+
                             <Route path="/">
 
                                 <div className="App">
-                                           <SearchBar
+                                    <SearchBar
                                      mordekaiser={ (strebenkaiser) => this.handleSearch(strebenkaiser)}
-                                  ></SearchBar>
+                                    >
+                                    </SearchBar>
                                   <Container/>
                                 </div>
                             </Route>
