@@ -1,34 +1,45 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Container from './Container.js';
 import DisplaySearch from './DisplaySearch.js';
 import SearchBar from './SearchBar.js';
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import Sec from './Sec.js';
+import {BrowserRouter as Router, Switch, Route, Link}  from "react-router-dom";
+import Navclass from "./Navclass";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchData: []
+    constructor(props) {
+        super(props);
+        this.state = {
+            role: 0,
+            searchData: []
+
+        }
     }
-  }
+
+    handleRole(newRole) {
+        this.setState({
+            role: newRole
+        });
+    }
 
 
-  renderMain() {
-    return (
-      <Container
-      />
-      )
-  }
+    renderSection() {
+        return (
+            <Sec
+                value={1}
+            />
 
-  handleSearch(data) {
-    this.setState({
-      searchData:data
-    })
-  }
+        );
+    }
 
-  render() {
-    return (
+
+    render() {
+        return(
+
+                <Navclass
+                />
 
       <Router>
 
@@ -56,8 +67,8 @@ class App extends React.Component {
           </Switch>    
         </div>
         </Router>
-      
-    );
-}
-}
-export default App;
+
+        );
+    }
+
+} export default App;

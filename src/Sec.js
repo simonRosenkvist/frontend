@@ -10,6 +10,9 @@ export default class Sec extends React.Component {
         <h3>{this.props.description}</h3>
         <p>{this.props.category}</p>
         <p>Rating: {this.props.rating}</p>
+        <iframe>
+          
+        </iframe>
       </div>
     )
   }

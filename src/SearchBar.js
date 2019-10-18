@@ -2,13 +2,13 @@ import React from 'react';
 import './App.css';
 import Sec from './Sec.js';
 import {Redirect} from 'react-router-dom';
+import SearchRes from "./SearchRes";
 
 export default class SearchBar extends React.Component {
 	constructor(props) {
 		super(props);
-		this.textInput = null;
-
 		this.state = {
+			searchRes: '',
 			val:".",
 			restaurantArr: [],
 			search:false
@@ -20,8 +20,7 @@ export default class SearchBar extends React.Component {
 
     	this.focusTextInput = () => {
       		if (this.textInput) this.textInput.focus();
-    	}; 
-		
+    	};
 	}
 
 	componentDidMount() {
@@ -60,6 +59,26 @@ export default class SearchBar extends React.Component {
 				val:{value},
 			});
 	}
+
+	handleClick(event) {
+		event.preventDefault();
+		//onst squares = this.state.squares.slice();
+		//squares[i] = 'X';
+		console.log(event);
+		this.setState({searchRes: event.target.value});
+		console.log(this.state.searchRes);
+	}
+
+	renderSearch(event) {
+		//event.preventDefault();
+		return (
+			<SearchRes
+				value={this.state.searchRes}
+				onClick={() => this.handleClick(event.target.value)}
+			/>
+		);
+	}
+
 
   	render() {
 
