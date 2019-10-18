@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginForm from '../components/LoginForm';
+import LogoutForm from '../components/LoginForm';
 import {Redirect} from "react-router-dom"
 import axios from "axios";
 
@@ -9,7 +9,7 @@ class loginForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.doLogin = this.doLogin.bind(this);
         this.state = {
-            header: "Log in",
+            header: "Log out",
             username: "",
             password: "",
             error: "none",
@@ -48,6 +48,7 @@ class loginForm extends React.Component {
 
         const parent = this;
         let apiUrl = 'http://restau-back.herokuapp.com/api/user/logout/' + parent.state.username;
+        console.log(apiUrl);
         axios.post(apiUrl)
             .then(function (response) {
                 if (response.data === 200){
@@ -80,15 +81,13 @@ class loginForm extends React.Component {
         }
 
         return (
-            <LoginForm
+            <LogoutForm
                 header={this.state.header}
-                username={this.state.username}
-                password={this.state.password}
                 error={this.state.error}
                 onChange={this.onChange}
                 handleSubmit={(e) => this.handleSubmit(e)}
             >
-            </LoginForm>
+            </LogoutForm>
         )
     }
 
