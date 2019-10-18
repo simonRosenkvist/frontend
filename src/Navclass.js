@@ -29,6 +29,7 @@ class Navclass extends React.Component {
     }
 
 
+
     handleSearch(data){
         this.setState({
             searchData: data
@@ -63,7 +64,10 @@ class Navclass extends React.Component {
                                 <ReviewForm/>
                             </Route>
                             <Route path="/settings">
-                                <UserUpdate/>
+                                <UserUpdate
+                                    username={this.state.username}
+                                    role={this.state.role}
+                                />
                             </Route>
                             <Route path="/logout">
                                 <Logout
@@ -73,13 +77,6 @@ class Navclass extends React.Component {
                                 </Logout>
                             </Route>
 
-                             <Route path="/DisplaySearch">
-
-                                  <DisplaySearch
-                                    data={this.state.searchData}
-                                  >
-                                  </DisplaySearch>
-                            </Route>
                             <Route path="/">
 
                                 <div className="App">
@@ -138,13 +135,6 @@ class Navclass extends React.Component {
                                 </Logout>
                             </Route>
 
-                             <Route path="/DisplaySearch">
-
-                              <DisplaySearch
-                                data={this.state.searchData}
-                              >
-                              </DisplaySearch>
-                            </Route>
 
                             <Route path="/">
 
@@ -189,6 +179,7 @@ class Navclass extends React.Component {
                                 >
                                 </SignUp>
                             </Route>
+
                     
                             <Route path="/DisplaySearch">
                                 <SearchBar
@@ -199,6 +190,7 @@ class Navclass extends React.Component {
                                 >
                                 </DisplaySearch>
                             </Route>
+
 
                             <Route path="/">
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import LoginForm from '../components/LoginForm';
-import {Redirect} from "react-router-dom"
+import {Redirect} from "react-router-dom";
 import axios from "axios";
 
 class loginForm extends React.Component {

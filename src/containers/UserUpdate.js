@@ -1,5 +1,7 @@
 import React from 'react';
 import UserForm from '../components/UserForm';
+import {Redirect} from "react-router-dom";
+import axios from "axios";
 
 class userUpdateForm extends React.Component {
     constructor(props){
@@ -7,11 +9,13 @@ class userUpdateForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
             header: "Update user",
+            usersId: 4, // hardcoded for test
             username: "",
             password: "",
             email: "",
             role: "",
-            error: "none"
+            error: "none",
+            finished: false
         }
     }
 
@@ -19,15 +23,27 @@ class userUpdateForm extends React.Component {
         event.preventDefault();
 
         // do stuff with it
-        console.log(this.state.username);
-        console.log(this.state.password);
-        console.log(this.state.email);
-        console.log(this.state.role);
+        console.log("submit: " + this.state);
 
-        // sets error label to be visible
-        this.setState({
-            error: ""
-        }); 
+        // also need user id...
+
+        let apiUrl = 'http://restau-back.herokuapp.com/api/user/update';
+        const parent = this;
+        axios.post(apiUrl, this.state)
+            .then(function (response) {
+                if (response.data === 200){
+                    console.log(response.data);
+                    parent.props.onRoleChanged(response.data, parent.state.username);
+                    parent.setState({
+                        finished: true
+                    });
+                } else {
+                    console.log(response.data);
+                    parent.setState({
+                        error: ""
+                    });
+                }
+            });
 
     }
 
@@ -44,6 +60,11 @@ class userUpdateForm extends React.Component {
     }
 
     render(){
+        if(this.state.finished){
+            return (
+                <Redirect to="/"/>
+            )
+        }
         return (
             <UserForm
                 header={this.state.header}
