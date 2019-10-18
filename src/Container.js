@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Sec from './Sec.js';
 import Rev from './Rev.js';
+import SearchBar from './SearchBar';
 
 export default class Container extends React.Component {
 	constructor(props) {
@@ -9,6 +10,7 @@ export default class Container extends React.Component {
     	this.state = {
     		data: [],
     		revData: [],
+    		rev: null
     	};
  	}
 
