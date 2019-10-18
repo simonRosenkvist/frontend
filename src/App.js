@@ -1,42 +1,40 @@
-/*import React from 'react';
+import React from 'react';
 import './App.css';
 import Sec from './Sec.js';
 import SearchBar from './SearchBar';
 import Container from './Container.js';
-import LoginField from "./login";
-import { withCookies, Cookies, setCookie } from 'react-cookie';
-
 
 class App extends React.Component {
 
-renderSection() {
-    return (
-      <Sec
-        value={1}
-    />
+    renderSection() {
+        return (
+            <Sec
+                value={1}
+            />
 
-    );
-  }
+        );
+    }
 
-  renderMain() {
-    return (
-      <Container/>
-      )
-  }
+    renderMain() {
+        return (
+            <Container/>
+        )
+    }
 
-  render() {
-    return (
-      <div className="App">
-          <SearchBar/>
-          {this.renderMain()}
+    render() {
+        return (
+            <div className="App">
+                <SearchBar/>
 
-      </div>
-    );
-}
-}
-export default withCookies(App);*/
+                {this.renderMain()}
 
-import React from "react";
+            </div>
+        );
+    }
+} export default App;
+
+
+/*import React from "react";
 import {
     BrowserRouter as Router,
     Switch,
@@ -55,10 +53,10 @@ export default function App() {
 
 
                 {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-                <Switchclass />
+            renders the first one that matches the current URL. *///}
+                /*<Switchclass />
             </div>
         </Router>
     );
-}
+}*/
 
