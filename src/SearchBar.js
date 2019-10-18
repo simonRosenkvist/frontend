@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import {Redirect} from 'react-router-dom';
 
+
 export default class SearchBar extends React.Component {
 	constructor(props) {
 		super(props);
@@ -60,6 +61,21 @@ export default class SearchBar extends React.Component {
 			
 	}
 
+<<<<<<< HEAD
+=======
+	handleClick(event) {
+		event.preventDefault();
+		//onst squares = this.state.squares.slice();
+		//squares[i] = 'X';
+		console.log(event);
+		this.setState({searchRes: event.target.value});
+		console.log(this.state.searchRes);
+	}
+
+	
+
+
+>>>>>>> d07afd0bb17655543787096b83763582e483ea46
   	render() {
 
   		if(this.state.search === true) {
