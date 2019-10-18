@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 import Sec from './Sec.js';
-import {BrowserRouter as Router, Switch, Route, Link}  from "react-router-dom";
 import Navclass from "./Navclass";
 
 class App extends React.Component {

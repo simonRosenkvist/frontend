@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import LoginField from "./login";
 import SearchRes from "./SearchRes";
 
 export default class SearchBar extends React.Component {
