@@ -58,7 +58,11 @@ class Navclass extends React.Component {
                                 <UserUpdate/>
                             </Route>
                             <Route path="/logout">
-                                <Logout/>
+                                <logout
+
+                                    onRoleChanged={(role, name) => this.handleRole(role, name)}
+                                >
+                                </logout>
                             </Route>
                             <Route path="/">
 
