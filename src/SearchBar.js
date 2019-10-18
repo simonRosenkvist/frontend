@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import SearchRes from "./SearchRes";
 
 export default class SearchBar extends React.Component {
 	constructor(props){
@@ -24,15 +23,7 @@ export default class SearchBar extends React.Component {
 		console.log(this.state.searchRes);
 	}
 
-	renderSearch(event) {
-		//event.preventDefault();
-		return (
-			<SearchRes
-				value={this.state.searchRes}
-				onClick={() => this.handleClick(event.target.value)}
-			/>
-		);
-	}
+	
 
 
   	render() {
