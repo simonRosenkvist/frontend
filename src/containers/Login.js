@@ -17,25 +17,6 @@ class loginForm extends React.Component {
         }
     }
 
-    doLogin(event){
-        event.preventDefault();
-
-        let apiUrl = 'http://restau-back.herokuapp.com/api/user/login';
-        axios.post(apiUrl, this.state)
-            .then(function (response) {
-                if (response.data === 1 || response.data === 2){
-                    this.props.onRoleChanged(response.data);
-                    this.setState({
-                        finished: true
-                    });
-                } else {
-                    this.setState({
-                        error: ""
-                    });
-                }
-            });
-    }
-
     handleSubmit(event){
         event.preventDefault();
 

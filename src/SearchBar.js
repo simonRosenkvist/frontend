@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Sec from './Sec.js';
 import {Redirect} from 'react-router-dom';
 
 
@@ -27,11 +26,12 @@ export default class SearchBar extends React.Component {
     	this.focusTextInput();
   	}
 
-	search = () => {
+	search = (event) => {
+        event.preventDefault();
 		var val = "";
 
-		if (this.state.val.value !== undefined) {
-			val = this.state.val.value;
+		if (this.state.val !== undefined) {
+			val = this.state.val;
 
 		const parent = this;
 		const axios = require('axios');
@@ -56,38 +56,27 @@ export default class SearchBar extends React.Component {
 	updateSearch = () => {
 		var value = this.textInput.value;
 			this.setState({
-				val:{value},
+				val:value
 			});
+			
 	}
-
-	handleClick(event) {
-		event.preventDefault();
-		//onst squares = this.state.squares.slice();
-		//squares[i] = 'X';
-		console.log(event);
-		this.setState({searchRes: event.target.value});
-		console.log(this.state.searchRes);
-	}
-
-	
-
 
   	render() {
 
-  		if(this.state.search == true) {
+  		if(this.state.search === true) {
   			return(
 				<div>
-				<form id="searchForm">
+				<form id="searchForm" onSubmit={(e) => this.search(e)}>
 				<a href='/'>
-					<img id='home' width="40px" height="40px" src="https://image.flaticon.com/icons/svg/25/25694.svg"/>
+					<img id='home' width="40px" height="40px" src="https://image.flaticon.com/icons/svg/25/25694.svg" alt=""/>
 				</a>
 			      	<input id="searchField" ref={this.setTextInputRef} placeholder="Restaurant" type="text" onChange={this.updateSearch}></input>
-			      	<input id="searchBtn" value="Search" type="button" onClick={this.search}></input>
+			      	<input id="searchBtn" value="Search" type="button" onClick={(e) => this.search(e)}></input>
 	      		</form>
 
 				<Redirect to="/DisplaySearch">
-
 				</Redirect>
+
 				</div>
   			)
   		}
@@ -95,12 +84,12 @@ export default class SearchBar extends React.Component {
     	return (
     		<div>
 
-		      	<form id="searchForm">
+		      	<form id="searchForm" onSubmit={(e) => this.search(e)}>
 		      		<a href='/'>
-		      			<img id='home' width="40px" height="40px" src="https://image.flaticon.com/icons/svg/25/25694.svg"/>
+		      			<img id='home' width="40px" height="40px" src="https://image.flaticon.com/icons/svg/25/25694.svg" alt=""/>
 		      		</a>
 					    <input id="searchField" ref={this.setTextInputRef} placeholder="Restaurant" type="text" onChange={this.updateSearch}></input>
-					    <input id="searchBtn" value="Search" type="button" onClick={this.search}></input>
+					    <input id="searchBtn" value="Search" type="button" onClick={(e) => this.search(e)}></input>
 	      		</form>
 
 	      			
