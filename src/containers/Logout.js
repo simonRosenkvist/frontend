@@ -19,17 +19,19 @@ class loginForm extends React.Component {
 
     doLogin(event){
         event.preventDefault();
-
-        let apiUrl = 'http://restau-back.herokuapp.com/api/user/login';
-        axios.post(apiUrl, this.state)
+        const parent = this;
+        let apiUrl = 'http://restau-back.herokuapp.com/api/user/logout/' + parent.state.username;
+        axios.post(apiUrl)
             .then(function (response) {
-                if (response.data === 1 || response.data === 2){
-                    this.props.onRoleChanged(response.data);
-                    this.setState({
+                if (response.data === 200){
+                    console.log(response.data);
+                    parent.props.onRoleChanged(0, '');
+                    parent.setState({
                         finished: true
                     });
                 } else {
-                    this.setState({
+                    console.log(response.data);
+                    parent.setState({
                         error: ""
                     });
                 }
@@ -44,13 +46,13 @@ class loginForm extends React.Component {
         console.log(this.state.password);
 
 
-        let apiUrl = 'http://restau-back.herokuapp.com/api/user/login';
         const parent = this;
-        axios.post(apiUrl, this.state)
+        let apiUrl = 'http://restau-back.herokuapp.com/api/user/logout/' + parent.state.username;
+        axios.post(apiUrl)
             .then(function (response) {
-                if (response.data === 1 || response.data === 2){
+                if (response.data === 200){
                     console.log(response.data);
-                    parent.props.onRoleChanged(response.data, parent.state.username);
+                    parent.props.onRoleChanged(0, '');
                     parent.setState({
                         finished: true
                     });
@@ -64,7 +66,7 @@ class loginForm extends React.Component {
 
     }
 
-    onChange = (e) => { 
+    onChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         });

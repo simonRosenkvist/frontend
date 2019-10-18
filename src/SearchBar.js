@@ -38,12 +38,11 @@ export default class SearchBar extends React.Component {
 
   	render() {
     	return (
-    		<div>
-	      <form id="searchForm">
-	      	<input id="searchField" value={this.state.searchRes} placeholder="restaurant" type="text"></input>
-			  {this.renderSearch(this.state.searchRes)}
-	      </form>
-				<LoginField/>
+			<div>
+				<form id="searchForm">
+					<input id="searchField" placeholder="restaurant" type="text"></input>
+					<input id="searchBtn" value="Search" type="button" onClick={this.search}></input>
+				</form>
 			</div>
       	)
       }
