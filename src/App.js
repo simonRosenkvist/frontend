@@ -28,22 +28,46 @@ class App extends React.Component {
     }
 
 
-renderSection() {
-    return (
-      <Sec
-        value={1}
-    />
+    renderSection() {
+        return (
+            <Sec
+                value={1}
+            />
 
-    );
-  }
+        );
+    }
 
-  renderMain() {
-    return (
-      <Container/>
-      )
-  }
+    renderMain() {
+        return (
+            <Container/>
+        )
+    }
 
-  render() {
+    render() {
+        return (
+            <div className="App">
+                <SearchBar/>
+
+                {this.renderMain()}
+
+            </div>
+        );
+    }
+} export default App;
+
+
+/*import React from "react";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
+
+import Navclass from './Navclass';
+import Switchclass from "./Switchclass";
+
+export default function App() {
     return (
           <Router>
             <div>
@@ -98,6 +122,5 @@ renderSection() {
           </Router> 
 
     );
-}
-}
-export default App;
+}*/
+
