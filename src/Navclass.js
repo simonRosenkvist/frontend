@@ -25,7 +25,7 @@ class Navclass extends React.Component {
             username: name
         });
 
-        console.log("states...\n" + this.state.role + "\n " + this.state.username)
+        console.log("states...\n" + this.state.role + "\n" + this.state.username)
     }
 
     render() {
@@ -59,7 +59,7 @@ class Navclass extends React.Component {
                             </Route>
                             <Route path="/logout">
                                 <Logout
-
+                                    username={this.state.username}
                                     onRoleChanged={(role, name) => this.handleRole(role, name)}
                                 >
                                 </Logout>
@@ -111,7 +111,7 @@ class Navclass extends React.Component {
                             </Route>
                             <Route path="/logout">
                                 <Logout
-
+                                    username={this.state.username}
                                     onRoleChanged={(role, name) => this.handleRole(role, name)}
                                 >
                                 </Logout>
