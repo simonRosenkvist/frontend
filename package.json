@@ -4,10 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
-<<<<<<< HEAD
-=======
     "bootstrap": "^4.3.1",
->>>>>>> 71bac1d108f00a091c11435031c4e98a9988080e
     "react": "^16.10.2",
     "react-cookie": "^4.0.1",
     "react-dom": "^16.10.2",

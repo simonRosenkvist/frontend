@@ -15,7 +15,8 @@ class Navclass extends React.Component {
         super(props);
         this.state = {
             role: 0,
-            username: ''
+            username: '',
+            searchData: []
         }
     }
 
@@ -26,6 +27,13 @@ class Navclass extends React.Component {
         });
 
         console.log("states...\n" + this.state.role + "\n " + this.state.username)
+    }
+
+
+    handleSearch(data){
+        this.setState({
+            searchData: search
+        })
     }
 
     render() {
@@ -48,8 +56,12 @@ class Navclass extends React.Component {
                                 <li>
                                     <Link to="/logout">Logout</Link>
                                 </li>
+                                <li>
+                                    <Link to="/DisplaySearch"></Link>
+                                </li>
                             </ul>
                         </nav>
+
                         <Switch>
                             <Route path="/Review">
                                 <ReviewForm/>
@@ -64,11 +76,21 @@ class Navclass extends React.Component {
                                 >
                                 </logout>
                             </Route>
+
+                             <Route path="/DisplaySearch">
+
+                                  <DisplaySearch
+                                    data={this.state.searchData}
+                                  >
+                                  </DisplaySearch>
+                            </Route>
                             <Route path="/">
 
                                 <div className="App">
-                                    <SearchBar/>
-                                    <Container/>
+                                  <SearchBar
+                                     mordekaiser={ (strebenkaiser) => this.handleSearch(strebenkaiser)}
+                                  ></SearchBar>
+                                  <Container/>
 
                                 </div>
                             </Route>
@@ -97,6 +119,9 @@ class Navclass extends React.Component {
                                 <li>
                                     <Link to="/logout">Logout</Link>
                                 </li>
+                                  <li>
+                                    <Link to="/DisplaySearch"></Link>
+                                </li>
                             </ul>
                         </nav>
                         <Switch>
@@ -117,11 +142,21 @@ class Navclass extends React.Component {
                                 </Logout>
                             </Route>
 
+                             <Route path="/DisplaySearch">
+
+                              <DisplaySearch
+                                data={this.state.searchData}
+                              >
+                              </DisplaySearch>
+                            </Route>
+
                             <Route path="/">
 
                                 <div className="App">
-                                    <SearchBar/>
-                                    <Container/>
+                                        <SearchBar
+                                     mordekaiser={ (strebenkaiser) => this.handleSearch(strebenkaiser)}
+                                  ></SearchBar>
+                                  <Container/>
                                 </div>
                             </Route>
                         </Switch>
@@ -143,6 +178,9 @@ class Navclass extends React.Component {
                                 <li>
                                     <Link to="/signup">Signup</Link>
                                 </li>
+                                  <li>
+                                    <Link to="/DisplaySearch"></Link>
+                                </li>
                             </ul>
                         </nav>
                         <Switch>
@@ -159,11 +197,19 @@ class Navclass extends React.Component {
                                 >
                                 </SignUp>
                             </Route>
+                            <Route>
+                            <DisplaySearch
+                                data={this.state.searchData}
+                              >
+                              </DisplaySearch>
+                            </Route>
                             <Route path="/">
 
                                 <div className="App">
-                                    <SearchBar/>
-                                    <Container/>
+                                           <SearchBar
+                                     mordekaiser={ (strebenkaiser) => this.handleSearch(strebenkaiser)}
+                                  ></SearchBar>
+                                  <Container/>
                                 </div>
                             </Route>
                         </Switch>

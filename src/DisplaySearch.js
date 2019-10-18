@@ -51,12 +51,12 @@ export default class DisplaySearch extends React.Component {
 	      			description:info.description,
 	      			rating:info.rating,
 				})
-			)
+			))
 		
 		return(
 			<div id='search'>
-			<h1>Search Results</h1>
-			{arr}
+				<h1>Search Results</h1>
+				{arr}
 			</div>
 		)
 
