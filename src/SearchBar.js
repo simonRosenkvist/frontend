@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import Sec from './Sec.js';
 import {Redirect} from 'react-router-dom';
-import SearchRes from "./SearchRes";
 
 
 export default class SearchBar extends React.Component {

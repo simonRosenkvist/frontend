@@ -1,5 +1,7 @@
 import React from 'react';
+import {Redirect} from "react-router-dom";
 import UserForm from '../components/UserForm';
+import axios from "axios";
 
 class signupForm extends React.Component {
     constructor(props){
@@ -11,7 +13,8 @@ class signupForm extends React.Component {
             password: "",
             email: "",
             role: "",
-            error: "none"
+            error: "none",
+            finished: false
         }
     }
 
@@ -25,10 +28,30 @@ class signupForm extends React.Component {
         console.log(this.state.role);
 
         // sets error label to be visible
-        this.setState({
+        /*this.setState({
             error: ""
         }); 
-        console.log("from other page " + this.props.rolee);
+        console.log("from other page " + this.props.rolee);*/
+
+        let apiUrl = 'http://restau-back.herokuapp.com/api/user/create';
+        const parent = this;
+        axios.post(apiUrl, this.state)
+            .then(function (response) {
+                if (response.data === 200){
+                    console.log(response.data);
+                    console.log("wohooo user created stuff")
+                    parent.setState({
+                        finished: true
+                    });
+
+                } else {
+                    console.log(response.data);
+                    parent.setState({
+                        error: ""
+                    });
+                }
+            });
+
 
     }
 
@@ -45,6 +68,11 @@ class signupForm extends React.Component {
     }
 
     render(){
+        if(this.state.finished){
+            return (
+                <Redirect to="/"/>
+            )
+        }
         return (
             <UserForm
                 header={this.state.header}
