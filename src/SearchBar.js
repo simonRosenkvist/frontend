@@ -4,6 +4,7 @@ import Sec from './Sec.js';
 import {Redirect} from 'react-router-dom';
 import SearchRes from "./SearchRes";
 
+
 export default class SearchBar extends React.Component {
 	constructor(props) {
 		super(props);
@@ -69,15 +70,7 @@ export default class SearchBar extends React.Component {
 		console.log(this.state.searchRes);
 	}
 
-	renderSearch(event) {
-		//event.preventDefault();
-		return (
-			<SearchRes
-				value={this.state.searchRes}
-				onClick={() => this.handleClick(event.target.value)}
-			/>
-		);
-	}
+	
 
 
   	render() {
