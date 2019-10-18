@@ -45,15 +45,6 @@ class loginForm extends React.Component {
         console.log(this.state.username);
         console.log(this.state.password);
 
-        //this.doLogin(event);
-
-        //this.props.onRoleChanged(2);
-
-        // sets error label to be visible
-        /*this.setState({
-            error: "",
-            finished: true
-        }); */
 
         const parent = this;
         let apiUrl = 'http://restau-back.herokuapp.com/api/user/logout/' + parent.state.username;
