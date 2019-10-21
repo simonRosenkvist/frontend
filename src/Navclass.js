@@ -98,7 +98,6 @@ class Navclass extends React.Component {
 
                                 <div className="App">
                                   <SearchBar
-                                      userStuff={this.state.userStuff}
                                       mordekaiser={ (strebenkaiser) => this.handleSearch(strebenkaiser)}
                                   ></SearchBar>
                                   <Container/>

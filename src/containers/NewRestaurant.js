@@ -34,7 +34,11 @@ class newRestaurant extends React.Component {
             "name": this.state.name,
             "description": this.state.description,
             "category": this.state.category,
-            "usersIdFk": { "usersId": 12} // hardcoded until we get the user object
+            "address": this.state.address,
+            "usersIdFk": {
+                "usersId": this.props.userStuff.usersId
+
+            }
         }
 
         console.log(restUpdate);
