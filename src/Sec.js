@@ -14,6 +14,17 @@ export default class Sec extends React.Component {
                     <h3>{this.props.description}</h3>
                     <p>{this.props.category}</p>
                     <p>Rating: {this.props.rating}</p>
+              <iframe 
+                            title="map"
+                            width="270" 
+                            height="270" 
+                            id="gmap_canvas" 
+                            src={"https://maps.google.com/maps?q="+ this.props.address +"&t=&z=13&ie=UTF8&iwloc=&output=embed"} 
+                            frameBorder="0" 
+                            scrolling="no" 
+                            marginHeight="0" 
+                            marginWidth="0">
+                        </iframe>
                     <RestauUpdate
                         restaurantId={this.props.restaurantId}
                         name={this.props.name}
@@ -33,6 +44,17 @@ export default class Sec extends React.Component {
                     <h3>{this.props.description}</h3>
                     <p>{this.props.category}</p>
                     <p>Rating: {this.props.rating}</p>
+              <iframe 
+                            title="map"
+                            width="270" 
+                            height="270" 
+                            id="gmap_canvas" 
+                            src={"https://maps.google.com/maps?q="+ this.props.address +"&t=&z=13&ie=UTF8&iwloc=&output=embed"} 
+                            frameBorder="0" 
+                            scrolling="no" 
+                            marginHeight="0" 
+                            marginWidth="0">
+                        </iframe>
                     <RestauUpdate
                         restaurantId={this.props.restaurantId}
                         name={this.props.name}
@@ -51,6 +73,17 @@ export default class Sec extends React.Component {
                     <h3>{this.props.description}</h3>
                     <p>{this.props.category}</p>
                     <p>Rating: {this.props.rating}</p>
+              <iframe 
+                            title="map"
+                            width="270" 
+                            height="270" 
+                            id="gmap_canvas" 
+                            src={"https://maps.google.com/maps?q="+ this.props.address +"&t=&z=13&ie=UTF8&iwloc=&output=embed"} 
+                            frameBorder="0" 
+                            scrolling="no" 
+                            marginHeight="0" 
+                            marginWidth="0">
+                        </iframe>
                 </div>
             );
 
