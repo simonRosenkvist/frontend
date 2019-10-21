@@ -29,13 +29,23 @@ class UpdateRestaurant extends React.Component{
             "name": this.state.name,
             "description": this.state.description,
             "category": this.state.category,
-            "usersId_fk": this.props.usersId_fk
+            "usersId_fk": { "usersId": this.props.usersId_fk}
         }
         const parent = this;
         console.log(restUpdate);
         axios.post(apiUrl, restUpdate)
             .then(function (response){
-                //do stuff
+                console.log(response.data);
+                if(response.data === 200){
+                    parent.setState({
+                        finished: true
+                    });
+                } else if (response.data === 403){
+                    console.log("update FAIL");
+                    parent.setState({
+                        error: ""
+                    });
+                }
         });
     }
 
