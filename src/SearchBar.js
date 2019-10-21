@@ -7,6 +7,7 @@ export default class SearchBar extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			role: 0,
 			searchRes: '',
 			val:".",
 			restaurantArr: [],

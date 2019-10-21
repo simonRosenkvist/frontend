@@ -17,6 +17,7 @@ class UpdateRestaurant extends React.Component{
             description: '',
             category: '',
             usersId_fk: 0,
+            finished: false
         }
     }
 
