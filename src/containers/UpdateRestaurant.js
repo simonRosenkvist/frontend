@@ -50,6 +50,8 @@ class UpdateRestaurant extends React.Component{
     }
 
     onChange = (e) => {
+        e.preventDefault();
+        console.log("onchange");
         this.setState({
             [e.target.name]: e.target.value
         });
@@ -61,14 +63,10 @@ class UpdateRestaurant extends React.Component{
                 <Redirect to="/"/>
             );
         }
-
+        console.log("updateRest"+this.state.name +"\n" +this.state.address + "\n" + this.state.description + "\n" + this.state.category);
         return(
             <NewRestaurantForm
                 header={this.state.header}
-                name={this.state.name}
-                address={this.state.address}
-                description={this.state.description}
-                category={this.state.category}
                 error={this.state.error}
                 onChange={this.onChange}
                 handleSubmit={(e) => this.handleSubmit(e)}

@@ -1,5 +1,6 @@
 import React from 'react';
 import NewRestaurantForm from '../components/NewRestaurantForm';
+import axios from "axios";
 
 class newRestaurant extends React.Component {
     constructor(props){
@@ -27,7 +28,26 @@ class newRestaurant extends React.Component {
         // sets error label to be visible
         this.setState({
             error: ""
-        }); 
+        });
+
+        let apiUrl = 'http://restau-back.herokuapp.com/api/restaurant/create';
+        const parent = this;
+        axios.post(apiUrl, this.state)
+            .then(function (response) {
+                if (response.data === 200){
+                    console.log(response.data);
+                    console.log("wohooo user created stuff")
+                    parent.setState({
+                        finished: true
+                    });
+
+                } else {
+                    console.log(response.data);
+                    parent.setState({
+                        error: ""
+                    });
+                }
+            });
 
     }
 
