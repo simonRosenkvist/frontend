@@ -1,4 +1,5 @@
 import React from 'react';
+import {Redirect} from "react-router-dom";
 import NewRestaurantForm from '../components/NewRestaurantForm';
 import axios from "axios";
 
@@ -7,6 +8,7 @@ class newRestaurant extends React.Component {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
+            finished: false,
             header: "Add New Restaurant",
             name: "",
             address: "",
@@ -26,13 +28,19 @@ class newRestaurant extends React.Component {
         console.log(this.state.category);
 
         // sets error label to be visible
-        this.setState({
-            error: ""
-        });
+
+        let restUpdate = {
+            "name": this.state.name,
+            "description": this.state.description,
+            "category": this.state.category,
+            "usersId_fk": { "usersId": 12} // hardcoded until we get the user object
+        }
+
+        console.log(restUpdate);
 
         let apiUrl = 'http://restau-back.herokuapp.com/api/restaurant/create';
         const parent = this;
-        axios.post(apiUrl, this.state)
+        axios.post(apiUrl, restUpdate)
             .then(function (response) {
                 if (response.data === 200){
                     console.log(response.data);
@@ -59,6 +67,11 @@ class newRestaurant extends React.Component {
 
     
     render(){
+        if(this.state.finished){
+            return (
+                <Redirect to="/"/>
+            );
+        }
         return (
             <NewRestaurantForm
                 header={this.state.header}
