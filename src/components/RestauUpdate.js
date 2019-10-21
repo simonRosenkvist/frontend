@@ -19,13 +19,14 @@ class RestauUpdate extends React.Component{
 
     render () {
         if(this.state.update) {
+            console.log("restauUpdate: " +this.props.name +"\n" +this.state.address + "\n" + this.state.description + "\n" + this.state.category);
             return(
                 <UpdateRestaurant
-                    restaurantId={this.state.restaurantId}
-                    name={this.state.name}
-                    address={this.state.address}
-                    description={this.state.description}
-                    category={this.state.category}
+                    restaurantId={this.props.restaurantId}
+                    name={this.props.name}
+                    address={this.props.address}
+                    description={this.props.description}
+                    category={this.props.category}
                     usersId_fk={this.props.usersId_fk}>
                 </UpdateRestaurant>
             );
