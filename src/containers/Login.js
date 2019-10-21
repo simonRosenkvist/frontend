@@ -28,14 +28,14 @@ class loginForm extends React.Component {
         const parent = this;
         axios.post(apiUrl, this.state)
             .then(function (response) {
-                if (response.data === 1 || response.data === 2){
+                if (response.data !== null){
                     console.log(response.data);
-                    parent.props.onRoleChanged(response.data, parent.state.username);
+                    parent.props.onRoleChanged(response.data);
                     parent.setState({
                         finished: true
                     });
                 } else {
-                    console.log(response.data);
+                    console.log("else " + response.data);
                     parent.setState({
                         error: ""
                     });

@@ -14,6 +14,7 @@ class newRestaurant extends React.Component {
             address: "",
             description: "",
             category: "",
+            usersIdFk: "",
             error: "none"
         }
     }
@@ -33,7 +34,11 @@ class newRestaurant extends React.Component {
             "name": this.state.name,
             "description": this.state.description,
             "category": this.state.category,
-            "usersId_fk": { "usersId": 12} // hardcoded until we get the user object
+            "address": this.state.address,
+            "usersIdFk": {
+                "usersId": this.props.userStuff.usersId
+
+            }
         }
 
         console.log(restUpdate);
@@ -48,6 +53,7 @@ class newRestaurant extends React.Component {
                     parent.setState({
                         finished: true
                     });
+
 
                 } else {
                     console.log(response.data);

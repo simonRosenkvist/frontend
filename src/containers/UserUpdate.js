@@ -9,7 +9,7 @@ class userUpdateForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
             header: "Update user",
-            usersId: 4, // hardcoded for test
+            usersId: this.props.userStuff.usersId,
             username: "",
             password: "",
             email: "",
@@ -22,18 +22,21 @@ class userUpdateForm extends React.Component {
     handleSubmit(event){
         event.preventDefault();
 
-        // do stuff with it
-        console.log("submit: " + this.state);
-
-        // also need user id...
 
         let apiUrl = 'http://restau-back.herokuapp.com/api/user/update';
+        let restUpdate = {
+            "usersId": this.state.usersId,
+            "username": this.state.username,
+            "email": this.state.email,
+            "password": this.state.password,
+            "role": this.state.role
+        }
         const parent = this;
-        axios.post(apiUrl, this.state)
+        axios.post(apiUrl, restUpdate)
             .then(function (response) {
                 if (response.data === 200){
                     console.log(response.data);
-                    parent.props.onRoleChanged(response.data, parent.state.username);
+                    parent.props.onRoleChanged(restUpdate);
                     parent.setState({
                         finished: true
                     });
@@ -47,17 +50,18 @@ class userUpdateForm extends React.Component {
 
     }
 
-    onChange = (event) => { 
+    handleChange = (event) => {
+        this.setState({
+             role: event.target.value
+        });
+    }
+
+    onChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         });
     }
 
-    handleChange = (event) => {
-        this.setState({
-            role: event.target.value
-         });
-    }
 
     render(){
         if(this.state.finished){

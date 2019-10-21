@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
 
 body {
+  height: 500vh;
+  background-color: #000;
   margin: 0;
   min-height: 200vh;
   background-color: #000;
@@ -40,15 +42,17 @@ h3 {
 }
 
 nav {
+  background-color: #FFF;
+}
+
+nav ul {
+  margin-left: 35%;
+  margin-top: 0px;
   text-align: center;
   background-color: #FFF;
   margin: 0px;
   padding: 0px;
-}
-
-nav ul {
   padding-top: 10px;
-  margin-bottom: 0px;
 }
 
 nav ul li {
