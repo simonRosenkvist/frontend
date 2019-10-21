@@ -3,7 +3,7 @@ import React from 'react';
 class NewRestaurantForm extends React.Component {
     render(){
         return (
-            <div className="col-md-4 offset-md-4">
+            <div className="col-md-4 offset-md-4" id="updateBody">
                 <div className="card">
                     <div className="card-header">
                         <h2>{this.props.header}</h2>
