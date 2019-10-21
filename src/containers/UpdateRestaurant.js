@@ -25,19 +25,18 @@ class UpdateRestaurant extends React.Component{
 
         let apiUrl = 'http://restau-back.herokuapp.com/api/restaurant/update';
         let restUpdate = {
-            "restaurantId": this.state.restaurantId,
+            "restaurantId": this.props.restaurantId,
             "name": this.state.name,
             "description": this.state.description,
             "category": this.state.category,
-            "usersId_fk": this.state.usersId_fk
+            "usersId_fk": this.props.usersId_fk
         }
         const parent = this;
-        console.log("before restau update");
         console.log(restUpdate);
-        /*axios.post(apiUrl, restUpdate)
+        axios.post(apiUrl, restUpdate)
             .then(function (response){
                 //do stuff
-        });*/
+        });
     }
 
     onChange = (e) => {

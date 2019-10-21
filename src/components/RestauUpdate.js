@@ -19,7 +19,6 @@ class RestauUpdate extends React.Component{
 
     render () {
         if(this.state.update) {
-            console.log("render: " + this.state.restaurantId);
             return(
                 <UpdateRestaurant
                     restaurantId={this.state.restaurantId}
@@ -31,7 +30,6 @@ class RestauUpdate extends React.Component{
                 </UpdateRestaurant>
             );
         }
-        console.log("user: " + this.props.usersId_fk);
         return (
             <button onClick={() => {this.setState({update: true,
                 restaurantId: this.props.restaurantId,
@@ -40,5 +38,5 @@ class RestauUpdate extends React.Component{
         );
 
     }
-    
+
 } export default RestauUpdate;
