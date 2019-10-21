@@ -122,7 +122,7 @@ class Navclass extends React.Component {
                                 <NewRestaurant/>
                             </Route>
                             <Route path="/updaterestaurant">
-                                <UserUpdate/>
+                                <NewRestaurant/>
                             </Route>
                             <Route path="/settings">
                                 <UserUpdate/>
