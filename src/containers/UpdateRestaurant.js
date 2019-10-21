@@ -16,7 +16,7 @@ class UpdateRestaurant extends React.Component{
             address: '',
             description: '',
             category: '',
-            usersId_fk: 0,
+            usersIdFk: 0,
             finished: false
         }
     }
@@ -30,7 +30,7 @@ class UpdateRestaurant extends React.Component{
             "name": this.state.name,
             "description": this.state.description,
             "category": this.state.category,
-            "usersId_fk": { "usersId": this.props.usersId_fk}
+            "usersIdFk": { "usersId": this.props.usersIdFk}
         }
         const parent = this;
         console.log(restUpdate);

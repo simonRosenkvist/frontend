@@ -31,7 +31,7 @@ export default class Sec extends React.Component {
                         address={this.props.address}
                         description={this.props.description}
                         category={this.props.category}
-                        usersId_fk={this.props.usersId_fk}
+                        usersIdFk={this.props.usersIdFk}
                     > </RestauUpdate>
                 </div>
             );

@@ -16,19 +16,17 @@ class Navclass extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            role: 0,
-            username: '',
-            userId: 0,
             searchData: [],
-            restaurant: []
+            restaurant: [],
+            userStuff: []
         }
     }
 
-    handleRole(newRole, name) {
+    handleRole(data) {
         this.setState({
-            role: newRole,
-            username: name
+            userStuff: data
         });
+
     }
 
     handleRestaurant(data){
@@ -48,7 +46,8 @@ class Navclass extends React.Component {
 
     render() {
         //let x = 1;
-        if (this.state.role === 1) {
+        if (this.state.userStuff.role === 1) {
+            console.log(this.state.userStuff);
             return (
                 <Router>
                     <div>
@@ -75,23 +74,31 @@ class Navclass extends React.Component {
                             </Route>
                             <Route path="/settings">
                                 <UserUpdate
-                                    username={this.state.username}
-                                    role={this.state.role}
+                                    userStuff={this.state.userStuff}
+                                    onRoleChanged={(data) => this.handleRole(data)}
                                 />
                             </Route>
                             <Route path="/logout">
                                 <Logout
-                                    username={this.state.username}
-                                    onRoleChanged={(role, name) => this.handleRole(role, name)}
+                                    userStuff={this.state.userStuff}
                                 >
                                 </Logout>
+                            </Route>
+                            <Route path="/DisplaySearch">
+                                <SearchBar
+                                    mordekaiser={ (strebenkaiser) => this.handleSearch(strebenkaiser)}
+                                ></SearchBar>
+                                <DisplaySearch
+                                    data={this.state.searchData}
+                                >
+                                </DisplaySearch>
                             </Route>
 
                             <Route path="/">
 
                                 <div className="App">
                                   <SearchBar
-                                      role={this.state.role}
+                                      userStuff={this.state.userStuff}
                                       mordekaiser={ (strebenkaiser) => this.handleSearch(strebenkaiser)}
                                   ></SearchBar>
                                   <Container/>
@@ -102,7 +109,7 @@ class Navclass extends React.Component {
                     </div>
                 </Router>
             );
-        } else if (this.state.role === 2) {
+        } else if (this.state.userStuff.role === 2) {
             return (
                 <Router>
                     <div>
@@ -130,20 +137,37 @@ class Navclass extends React.Component {
 
                         <Switch>
                             <Route path="/addrestaurant">
-                                <NewRestaurant/>
+                                <NewRestaurant
+                                    userStuff={this.state.userStuff}
+                                    //onRestauChanged={(data) => this.handleRestaurant(data)}
+                                />
                             </Route>
                             <Route path="/updaterestaurant">
-                                <UpdateRestaurant/>
+                                <UpdateRestaurant
+                                    userStuff={this.state.userStuff}
+                                    //onRestauChanged={(data) => this.handleRestaurant(data)}
+                                />
                             </Route>
                             <Route path="/settings">
-                                <UserUpdate/>
+                                <UserUpdate
+                                    userStuff={this.state.userStuff}
+                                    onRoleChanged={(data) => this.handleRole(data)}
+                                />
                             </Route>
                             <Route path="/logout">
                                 <Logout
-                                    username={this.state.username}
-                                    onRoleChanged={(role, name) => this.handleRole(role, name)}
+                                    userStuff={this.state.userStuff}
                                 >
                                 </Logout>
+                            </Route>
+                            <Route path="/DisplaySearch">
+                                <SearchBar
+                                    mordekaiser={ (strebenkaiser) => this.handleSearch(strebenkaiser)}
+                                ></SearchBar>
+                                <DisplaySearch
+                                    data={this.state.searchData}
+                                >
+                                </DisplaySearch>
                             </Route>
 
 
@@ -151,7 +175,7 @@ class Navclass extends React.Component {
 
                                 <div className="App">
                                         <SearchBar
-                                            role={this.state.role}
+                                            userStuff={this.state.userStuff}
                                             mordekaiser={ (strebenkaiser) => this.handleSearch(strebenkaiser)}
                                   ></SearchBar>
                                   <Container/>
@@ -161,7 +185,7 @@ class Navclass extends React.Component {
                     </div>
                 </Router>
             );
-        } else if (this.state.role === 0) {
+        } else {
             return (
                 <Router>
                     <div>
@@ -181,13 +205,12 @@ class Navclass extends React.Component {
                         <Switch>
                             <Route path="/login">
                                 <Login
-                                    onRoleChanged={(role, name) => this.handleRole(role, name)}
+                                    onRoleChanged={(data) => this.handleRole(data)}
                                 >
                                 </Login>
                             </Route>
                             <Route path="/signup">
                                 <SignUp
-                                    rolee={this.state.role}
                                 >
                                 </SignUp>
                             </Route>

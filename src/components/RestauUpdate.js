@@ -27,14 +27,14 @@ class RestauUpdate extends React.Component{
                     address={this.props.address}
                     description={this.props.description}
                     category={this.props.category}
-                    usersId_fk={this.props.usersId_fk}>
+                    usersIdFk={this.props.usersIdFk}>
                 </UpdateRestaurant>
             );
         }
         return (
             <button onClick={() => {this.setState({update: true,
                 restaurantId: this.props.restaurantId,
-                usersId_fk: this.props.usersId_fk})
+                usersIdFk: this.props.usersIdFk})
             }}>Update</button>
         );
 
