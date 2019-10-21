@@ -91,7 +91,8 @@ class Navclass extends React.Component {
 
                                 <div className="App">
                                   <SearchBar
-                                     mordekaiser={ (strebenkaiser) => this.handleSearch(strebenkaiser)}
+                                      role={this.state.role}
+                                      mordekaiser={ (strebenkaiser) => this.handleSearch(strebenkaiser)}
                                   ></SearchBar>
                                   <Container/>
 
@@ -150,7 +151,8 @@ class Navclass extends React.Component {
 
                                 <div className="App">
                                         <SearchBar
-                                     mordekaiser={ (strebenkaiser) => this.handleSearch(strebenkaiser)}
+                                            role={this.state.role}
+                                            mordekaiser={ (strebenkaiser) => this.handleSearch(strebenkaiser)}
                                   ></SearchBar>
                                   <Container/>
                                 </div>
