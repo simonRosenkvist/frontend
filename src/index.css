@@ -78,6 +78,14 @@ textarea {
   margin-top: 10px;
 }
 
+.sec button {
+  background-color: #000;
+  border-color: #666;
+  color: #FFF;
+  margin-top: 5px;
+  margin-left: 8px;
+}
+
 .sec h2, h3, p {
   margin-left: 10px;
   margin-right: 10px;
