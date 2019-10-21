@@ -9,7 +9,7 @@ export default class DisplaySearch extends React.Component {
 		const arr = data.map(info => (
 				<Sec
 					restaurantId={info.restaurantId}
-					usersId_fk={info.usersId_fk}
+					usersIdFk={info.usersIdFk}
 					name={info.name}
 					address={info.address}
 					category={info.category}
