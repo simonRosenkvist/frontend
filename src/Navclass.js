@@ -9,6 +9,7 @@ import ReviewForm from "./components/ReviewForm";
 import Container from "./Container";
 import Logout from "./containers/Logout";
 import DisplaySearch from "./DisplaySearch";
+import UpdateRestaurant from "./containers/UpdateRestaurant";
 
 
 class Navclass extends React.Component {
@@ -17,7 +18,9 @@ class Navclass extends React.Component {
         this.state = {
             role: 0,
             username: '',
-            searchData: []
+            userId: 0,
+            searchData: [],
+            restaurant: []
         }
     }
 
@@ -28,12 +31,19 @@ class Navclass extends React.Component {
         });
     }
 
+    handleRestaurant(data){
+        this.setState({
+            restaurant: data
+        })
+    }
+
 
 
     handleSearch(data){
         this.setState({
             searchData: data
         })
+
     }
 
     render() {
@@ -122,7 +132,7 @@ class Navclass extends React.Component {
                                 <NewRestaurant/>
                             </Route>
                             <Route path="/updaterestaurant">
-                                <NewRestaurant/>
+                                <UpdateRestaurant/>
                             </Route>
                             <Route path="/settings">
                                 <UserUpdate/>
@@ -149,7 +159,7 @@ class Navclass extends React.Component {
                     </div>
                 </Router>
             );
-        } else {
+        } else if (this.state.role === 0) {
             return (
                 <Router>
                     <div>
