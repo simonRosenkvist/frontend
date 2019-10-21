@@ -12,8 +12,6 @@ export default class Sec extends React.Component {
                 <h3>{this.props.description}</h3>
                 <p>{this.props.category}</p>
                 <p>Rating: {this.props.rating}</p>
-                <p>usersId_fk: {this.props.usersId_fk}</p>
-                <p>restaurantId: {this.props.restaurantId}</p>
                 <RestauUpdate
                     restaurantId={this.props.restaurantId}
                     name={this.props.name}
